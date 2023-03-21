@@ -45,6 +45,9 @@ enum QrEyeShape {
   /// Use square eye frame.
   square,
 
+  /// Use square rounded eye frame.
+  squareRounded,
+
   /// Use circular eye frame.
   circle,
 }
@@ -54,6 +57,9 @@ enum QrDataModuleShape {
   /// Use square dots.
   square,
 
+  /// Use square rounded dots.
+  squareRounded,
+
   /// Use circular dots.
   circle,
 }
@@ -61,13 +67,16 @@ enum QrDataModuleShape {
 /// Styling options for finder pattern eye.
 class QrEyeStyle {
   /// Create a new set of styling options for QR Eye.
-  const QrEyeStyle({this.eyeShape, this.color});
+  const QrEyeStyle({this.eyeShape, this.color, this.radius = 0});
 
   /// Eye shape.
   final QrEyeShape? eyeShape;
 
   /// Color to tint the eye.
   final Color? color;
+
+  /// radius
+  final double radius;
 
   @override
   int get hashCode => eyeShape.hashCode ^ color.hashCode;
@@ -87,6 +96,7 @@ class QrDataModuleStyle {
   const QrDataModuleStyle({
     this.dataModuleShape,
     this.color,
+    this.radius = 0,
   });
 
   /// Eye shape.
@@ -94,6 +104,9 @@ class QrDataModuleStyle {
 
   /// Color to tint the data modules.
   final Color? color;
+
+  /// radius
+  final double radius;
 
   @override
   int get hashCode => dataModuleShape.hashCode ^ color.hashCode;
